@@ -125,6 +125,7 @@ func test_collapse_rows():
 
 func game_over():
 	piece_active = false
+	print("Tacos")
 	get_tree().change_scene("res://gameOver/gameOverScreen.tscn")
 #	update()
 
@@ -167,17 +168,17 @@ func _input(ie):
 	if (!ie.is_pressed()):
 		return
 
-	if (ie.is_action("player1_move_left")):
+	if (ie.is_action("player2_move_left")):
 		if (piece_check_fit(Vector2(-1, 0))):
 			piece_pos.x -= 1
 			update()
-	elif (ie.is_action("player1_move_right")):
+	elif (ie.is_action("player2_move_right")):
 		if (piece_check_fit(Vector2(1, 0))):
 			piece_pos.x += 1
 			update()
-	elif (ie.is_action("player1_move_down")):
+	elif (ie.is_action("player2_move_down")):
 		piece_move_down()
-	elif (ie.is_action("player1_rotate")):
+	elif (ie.is_action("player2_rotate")):
 		piece_rotate()
 
 
