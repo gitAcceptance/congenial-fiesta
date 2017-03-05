@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
-[ext_resource path="res://charSelect/spf2thd-ken.jpg" type="Texture" id=1]
-[ext_resource path="res://charSelect/spf2thd-dan.jpg" type="Texture" id=2]
-[ext_resource path="res://charSelect/up_arrow_hollow_outline_clip_art.jpg" type="Texture" id=3]
-[ext_resource path="res://charSelect/select_arrow.gd" type="Script" id=4]
+[ext_resource path="res://charSelect/down-arrow-hand-drawn-sign_318-53286.jpg" type="Texture" id=1]
+[ext_resource path="res://charSelect/select_arrow.gd" type="Script" id=2]
+[ext_resource path="res://vsScreen/select_arrow_2.gd" type="Script" id=3]
+[ext_resource path="res://charSelect/spf2thd-ken.jpg" type="Texture" id=4]
+[ext_resource path="res://charSelect/spf2thd-dan.jpg" type="Texture" id=5]
 
 [node name="CharSel" type="TextureButton"]
 
@@ -11,15 +12,15 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 2.0
+margin/left = 5.0
 margin/top = -2.0
-margin/right = 1031.0
+margin/right = 1034.0
 margin/bottom = 594.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 
 rect/scale = Vector2( 3, 3 )
 focus/ignore_mouse = true
@@ -27,10 +28,60 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
 margin/left = 333.0
-margin/top = 33.0
+margin/top = 214.0
 margin/right = 464.0
-margin/bottom = 64.0
+margin/bottom = 245.0
+custom_colors/font_color = Color( 1, 0.324219, 0.324219, 1 )
 text = "Choose your Fighter \n"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="select_arrow" type="Sprite" parent="."]
+
+transform/pos = Vector2( 123.163, 536.881 )
+transform/scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 1 )
+flip_v = true
+script/script = ExtResource( 2 )
+
+[node name="P1" type="Label" parent="select_arrow"]
+
+rect/scale = Vector2( 10, 10 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -74.0
+margin/top = -74.0
+margin/right = -34.0
+margin/bottom = -43.0
+custom_colors/font_color = Color( 0.0484009, 0.0837417, 0.953125, 1 )
+text = "P1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="select_arrow_2" type="Sprite" parent="."]
+
+transform/pos = Vector2( 124.408, 85.6772 )
+transform/scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 1 )
+script/script = ExtResource( 3 )
+
+[node name="P2" type="Label" parent="select_arrow_2"]
+
+rect/scale = Vector2( 10, 10 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -70.0
+margin/top = 0.0
+margin/right = -30.0
+margin/bottom = 31.0
+custom_colors/font_color = Color( 0.964844, 0.0339203, 0.0339203, 1 )
+text = "P2"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -41,15 +92,31 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 85.0
-margin/top = 124.0
-margin/right = 310.0
-margin/bottom = 349.0
+margin/left = 24.0
+margin/top = 172.0
+margin/right = 249.0
+margin/bottom = 397.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 1 )
+textures/normal = ExtResource( 4 )
 params/scale = Vector2( 0.25, 0.25 )
+
+[node name="name" type="Label" parent="Earth"]
+
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 42.0
+margin/top = 241.0
+margin/right = 66.0
+margin/bottom = 255.0
+text = "Ryu"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="Space" type="TextureButton" parent="."]
 
@@ -57,51 +124,85 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 726.0
-margin/top = 102.0
-margin/right = 901.0
-margin/bottom = 347.0
+margin/left = 818.0
+margin/top = 158.0
+margin/right = 993.0
+margin/bottom = 403.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
-textures/normal = ExtResource( 2 )
+textures/normal = ExtResource( 5 )
 params/scale = Vector2( 0.25, 0.25 )
 
-[node name="select_arrow" type="Sprite" parent="."]
-
-transform/pos = Vector2( 196.279, 481.091 )
-transform/scale = Vector2( 0.5, 0.2 )
-texture = ExtResource( 3 )
-script/script = ExtResource( 4 )
-
-[node name="first_toon" type="Label" parent="."]
+[node name="name" type="Label" parent="Space"]
 
 rect/scale = Vector2( 5, 5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 141.0
-margin/top = 360.0
-margin/right = 165.0
-margin/bottom = 374.0
-text = "Ryu"
+margin/left = 16.0
+margin/top = 266.0
+margin/right = 46.0
+margin/bottom = 280.0
+text = "Feng"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="second_toon" type="Label" parent="."]
+[node name="Fire" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 284.0
+margin/top = 173.0
+margin/right = 509.0
+margin/bottom = 398.0
+modulate = Color( 0.639216, 0.262745, 0.203922, 1 )
+stretch_mode = 0
+
+[node name="name" type="Label" parent="Fire"]
 
 rect/scale = Vector2( 5, 5 )
 focus/ignore_mouse = true
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 0
-margin/left = 718.0
-margin/top = 363.0
-margin/right = 755.0
-margin/bottom = 377.0
-text = "Other"
+margin/left = 45.0
+margin/top = 239.0
+margin/right = 69.0
+margin/bottom = 253.0
+text = "Poe"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Water" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 518.0
+margin/top = 168.0
+margin/right = 743.0
+margin/bottom = 393.0
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Water"]
+
+rect/scale = Vector2( 5, 5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 40.0
+margin/top = 244.0
+margin/right = 66.0
+margin/bottom = 258.0
+text = "Ling"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
