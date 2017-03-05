@@ -45,13 +45,25 @@ var current_piece = null
 var cells = {}
 
 func piece_check_fit(v):
-	if 1 == 1:
-		return true
 	if (cells.has(Vector2(current_piece.first.pos.x + v.x, current_piece.first.pos.y + v.y))):
-		print("wuuut")
 		return false
 	elif (cells.has(Vector2(current_piece.second.pos.x + v.x, current_piece.second.pos.y + v.y))):
-		print("wuuut")
+		return false
+	elif current_piece.first.pos.x + v.x < 0:
+		return false
+	elif current_piece.first.pos.y + v.y < 0:
+		return false
+	elif current_piece.first.pos.y + v.y > height - 1:
+		return false
+	elif current_piece.first.pos.x + v.x > width - 1:
+		return false
+	elif current_piece.second.pos.x + v.x < 0:
+		return false
+	elif current_piece.second.pos.y + v.y < 0:
+		return false
+	elif current_piece.second.pos.y + v.y > height - 1:
+		return false
+	elif current_piece.second.pos.x + v.x > width - 1:
 		return false
 	else:
 		return true
@@ -62,19 +74,19 @@ func _input(ie):
 	if (!ie.is_pressed()):
 		return
 
-	if (ie.is_action("player1_move_left")):
+	if (ie.is_action("player2_move_left")):
 		if (piece_check_fit(Vector2(-1, 0))):
 			current_piece.first.pos.x -= 1
 			current_piece.second.pos.x -= 1
 			update()
-	elif (ie.is_action("player1_move_right")):
+	elif (ie.is_action("player2_move_right")):
 		if (piece_check_fit(Vector2(1, 0))):
 			current_piece.first.pos.x += 1
 			current_piece.second.pos.x += 1
 			update()
-	elif (ie.is_action("player1_move_down")):
+	elif (ie.is_action("player2_move_down")):
 		piece_move_down()
-	elif (ie.is_action("player1_rotate")):
+	elif (ie.is_action("player2_rotate")):
 		piece_rotate()
 	
 
@@ -86,12 +98,12 @@ func piece_move_down():
 		current_piece.second.pos.y += 1
 		update()
 		
-	#else:
-	#	for c in block_shapes[piece_shape]:
-	#		var pos = piece_cell_xform(c)
-	#		cells[pos] = piece_shape
-	#	test_collapse_rows()
-	#	new_piece()
+	else:
+		cells[current_piece.first.pos] = current_piece.first
+		cells[current_piece.second.pos] = current_piece.second
+		# TODO look for exploding blocks
+		
+		new_piece()
 
 func piece_rotate():
 	if rotation == 0:
@@ -108,14 +120,12 @@ func piece_rotate():
 		update()
 
 func new_piece():
-	current_piece = Piece.new(Block.new(block_colors[randi() % block_colors.size()], false, Vector2(0, -1)), Block.new(block_colors[randi() % block_colors.size()], false, Vector2(0, 0)))
+	current_piece = Piece.new(Block.new(block_colors[randi() % block_colors.size()], false, Vector2(3, -1)), Block.new(block_colors[randi() % block_colors.size()], false, Vector2(3, 0)))
 	piece_active = true
-	print("newpiece")
 	update()
 
 func _draw():
 	
-	print("draw")
 	var sb = get_stylebox("bg", "Tree") # Use line edit bg
 	draw_style_box(sb, Rect2(Vector2(), get_size()).grow(3))
 
@@ -123,7 +133,7 @@ func _draw():
 
 	for cell in cells:
 		if cells[cell].isBreaker == false:
-			draw_texture_rect(block, Rect2(cell*bs, bs), false, block_colors[cells[cell].color])
+			draw_texture_rect(block, Rect2(cell*bs, bs), false, cells[cell].color)
 
 	if (piece_active):
 		draw_texture_rect(block, Rect2(current_piece.first.pos*bs, bs), false, current_piece.first.color)

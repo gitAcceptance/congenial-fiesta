@@ -27,7 +27,7 @@ margin/right = 349.0
 margin/bottom = 100.0
 script/script = ExtResource( 1 )
 
-[node name="timer" type="Timer" parent="grid_player1"]
+[node name="timer1" type="Timer" parent="grid_player1"]
 
 process_mode = 1
 wait_time = 1.0
@@ -79,15 +79,15 @@ margin/right = 586.0
 margin/bottom = 102.0
 script/script = ExtResource( 2 )
 
-[node name="timer" type="Timer" parent="grid_player2"]
+[node name="timer2" type="Timer" parent="grid_player2"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[connection signal="timeout" from="grid_player1/timer" to="grid_player1" method="piece_move_down"]
+[connection signal="timeout" from="grid_player1/timer1" to="grid_player1" method="piece_move_down"]
 
-[connection signal="timeout" from="grid_player2/timer" to="grid_player2" method="piece_move_down"]
+[connection signal="timeout" from="grid_player2/timer2" to="grid_player2" method="piece_move_down"]
 
 
