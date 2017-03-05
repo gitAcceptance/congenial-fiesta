@@ -11,7 +11,7 @@ func _ready():
 	self.set_process_input(true)
 	
 func _input(event):
-	if event.is_action_pressed("ui_right"):
+	if event.is_action_pressed("player1_move_right"):
 		
 		if current_state == "Ryu":
 			current_state = "Poe"
@@ -25,7 +25,7 @@ func _input(event):
 			current_state = "Feng"
 			current_location = Vector2(920, 550)
 
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("player1_move_left"):
 		if current_state == "Feng":
 			current_state = "Ling"
 			current_location = Vector2(645, 550)
