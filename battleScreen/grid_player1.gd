@@ -11,7 +11,9 @@ var score_label = null
 
 const MAX_SHAPES = 7
 
+
 var block = preload("block.png")
+
 
 var block_colors = [
 	Color(1, 0.5, 0.5),
@@ -118,7 +120,7 @@ func test_collapse_rows():
 			accum_down += 1
 	
 	score += accum_down*100
-	score_label.set_text(str(score))
+	#score_label.set_text(str(score))
 
 
 func game_over():
@@ -165,17 +167,17 @@ func _input(ie):
 	if (!ie.is_pressed()):
 		return
 
-	if (ie.is_action("move_left")):
+	if (ie.is_action("player1_move_left")):
 		if (piece_check_fit(Vector2(-1, 0))):
 			piece_pos.x -= 1
 			update()
-	elif (ie.is_action("move_right")):
+	elif (ie.is_action("player1_move_right")):
 		if (piece_check_fit(Vector2(1, 0))):
 			piece_pos.x += 1
 			update()
-	elif (ie.is_action("move_down")):
+	elif (ie.is_action("player1_move_down")):
 		piece_move_down()
-	elif (ie.is_action("rotate")):
+	elif (ie.is_action("player1_rotate")):
 		piece_rotate()
 
 
@@ -188,7 +190,7 @@ func setup(w, h):
 
 
 func _ready():
-	setup(10, 20)
+	setup(6, 13)
 	score_label = get_node("../score")
 	
 	set_process_input(true)
