@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://startScreen/Play 1 - Transparent.png" type="Texture" id=1]
 [ext_resource path="res://startScreen/StartButton.gd" type="Script" id=2]
 [ext_resource path="res://startScreen/quit.png" type="Texture" id=3]
+[ext_resource path="res://startScreen/MCj04349190000[1].png" type="Texture" id=4]
+[ext_resource path="res://startScreen/HelpButton.gd" type="Script" id=5]
 
 [sub_resource type="GDScript" id=1]
 
@@ -28,9 +30,9 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 362.0
+margin/left = 357.0
 margin/top = 46.0
-margin/right = 637.0
+margin/right = 632.0
 margin/bottom = 240.0
 toggle_mode = false
 enabled_focus_mode = 2
@@ -44,14 +46,32 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 347.0
-margin/top = 312.0
-margin/right = 656.0
-margin/bottom = 443.0
+margin/left = 338.0
+margin/top = 438.0
+margin/right = 647.0
+margin/bottom = 569.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 3 )
 script/script = SubResource( 1 )
+
+[node name="Help" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 345.0
+margin/top = 233.0
+margin/right = 636.0
+margin/bottom = 389.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+params/scale = Vector2( 1.75, 1.75 )
+params/modulate = Color( 0.828125, 0.731079, 0.731079, 1 )
+script/script = ExtResource( 5 )
 
 

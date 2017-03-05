@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://startScreen/back-button-hi.png" type="Texture" id=1]
+[ext_resource path="res://help/HelpButton.gd" type="Script" id=2]
+
+[node name="Label" type="Label"]
+
+rect/scale = Vector2( 4, 4 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 16.0
+margin/top = 5.0
+margin/right = 241.0
+margin/bottom = 141.0
+text = "Welcome to Mychicios help guide \nThe rules of the game are simple \nChoose your champion and battle \nIn a competetive tetris style game \nPlayer one uses arrow keys & enter\nPlayer two uses wasd & spacebar\nCreate combo blocks to increase \nThe difficulty on your opponent "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="backButton" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 201.0
+margin/top = 109.0
+margin/right = 261.0
+margin/bottom = 155.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 1 )
+params/scale = Vector2( 0.085, 0.085 )
+script/script = ExtResource( 2 )
+
+
