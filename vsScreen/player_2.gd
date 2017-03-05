@@ -6,5 +6,5 @@ var tanner = preload("res://charSelect/tanner.jpg")
 func _ready():
 	if Globals.get("current_state") == "Ryu":
 		set_texture(tanner)
-	elif Globals.get("current_state") == "Other":
+	elif Globals.get("current_state") == "Feng":
 		set_texture(sam)
