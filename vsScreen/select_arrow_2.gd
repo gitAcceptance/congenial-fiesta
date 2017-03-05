@@ -36,7 +36,7 @@ func _input(event):
 			current_state_2 = "Ryu"
 			current_location = Vector2(130, 100)
 			
-	if Input.is_action_pressed("player2_accept"):
+	if Input.is_action_pressed("ui_accept"):
 		if current_state_2 == "Ryu":
 			get_tree().change_scene("res://vsScreen/vsScreen.tscn")
 		elif current_state_2 == "Feng":
