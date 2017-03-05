@@ -45,4 +45,4 @@ func _input(event):
 	
 	self.set_pos(current_location)
 	
-	Globals.set("current_state", current_state_2)
+	Globals.set("current_state_2", current_state_2)
