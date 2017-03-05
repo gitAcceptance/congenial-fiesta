@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://vsScreen/vs.jpg" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+
+resource/name = "vs_screen.gd"
+script/source = "extends TextureButton\n\nvar timer = null\nvar screen_delay = 2\nvar can_trigger = true \n\nfunc _ready():\n\tprint(\"in ready\")\n\ttimer = Timer.new()\n\ttimer.set_one_shot(true)\n\ttimer.set_wait_time( screen_delay )\n\ttimer.connect(\"timeout\", self, \"_on_timeout_complete\")\n\tadd_child(timer)\n\t\n\tset_process_input(true)\n\tset_process(true)\n\nfunc _on_timeout_complete():\n\tcan_trigger = true\n\tprint(\"wait\")\n\tget_tree().change_scene(\"res://battleScreen/Battle.tscn\")\n\t\nfunc _input(event):\n\tprint(\"in event\")\n\tif (can_trigger):\n\t\tcan_trigger = false\n\t\ttimer.start()\n\t\tcan_trigger = true"
 
 [node name="vsScreen " type="TextureButton"]
 
@@ -17,5 +22,6 @@ enabled_focus_mode = 2
 shortcut = null
 textures/normal = ExtResource( 1 )
 params/scale = Vector2( 1.75, 1.5 )
+script/script = SubResource( 1 )
 
 
