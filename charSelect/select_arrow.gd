@@ -30,3 +30,7 @@ func _process(delta):
 			
 	
 	self.set_pos(current_location)
+	
+	Globals.set("current_state", current_state)
+
+
